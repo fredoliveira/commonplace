@@ -1,23 +1,23 @@
-require '../commonplace.rb'
+require 'commonplace'
 
 describe Commonplace do
 	before(:each) do
-		@w = Commonplace.new('testwiki')
+		@w = Commonplace.new('spec/testwiki')
 	end
 	
 	it "returns nil for a non-existing directory" do
-		w = Commonplace.new('testdir')
+		w = Commonplace.new('spec/testdir')
 		w.list.should == nil
 	end
 	
 	it "returns empty array for an empty directory" do
 		# create a new directory
-		Dir.mkdir('testdir2')
-		w = Commonplace.new('testdir2')
+		Dir.mkdir('spec/testdir2')
+		w = Commonplace.new('spec/testdir2')
 		w.list.should == []
 		
 		# remove directory
-		Dir.rmdir('testdir2')
+		Dir.rmdir('spec/testdir2')
 	end
 	
 	it "should return nil when accessing a non-existing file" do
