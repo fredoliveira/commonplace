@@ -2,8 +2,11 @@
 <head>
 	<title><%= @name %> | <%= options.sitename %></title>
 	<meta charset="utf-8">
+
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+
 	<link rel="stylesheet" href="/css/bootstrap.css">
-	<link rel="stylesheet" href="/css/screen.css">
+	<link rel="stylesheet" href="/css/screen.css">	
 </head>
 <body>
 	<div class="container">
@@ -15,7 +18,7 @@
 				</div>
 				
 				<div class="tools">
-					<a href="/special/list" class="btn small <%= "disabled" if @name == "List" %>">Page list</a>
+					<a href="/special/list" class="btn small <%= "disabled" if @name == "Known pages" %>">Page list</a>
 					<a href="/" class="btn small <%= "disabled" if @name == "Home" %>">Home</a>
 				</div>
 			</div>
