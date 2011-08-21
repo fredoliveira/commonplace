@@ -10,8 +10,9 @@
 	<%= @config %>
 	<div class="container">
 		<div class="row">
-			<div class="span10 offset3 columns">				
-				<h1><%= @name %></h1>
+			<div class="span10 offset3 columns">
+				<h1 class="title"><%= @name %></h1>
+
 				<% if @alert %>
 					<div class="alert-message error"><%= @alert %></div>
 				<% end %>
@@ -21,14 +22,14 @@
 				</div>
 				
 				<% if !@error %>
-				<div class="tools">
-					<% if @page && !@editing %>
-						<a href="/<%= @page.permalink %>/edit" class="btn small">Edit</a>
-						<a href="/p/new" class="btn small">New page</a>
-					<% end %>
-					<a href="/" class="btn small <%= "disabled" if @name == "Home" %>">Home</a>
-					<a href="/p/list" class="btn small <%= "disabled" if @name == "Known pages" %>">Page list</a>
-				</div>
+					<div class="tools">
+						<a href="/" class="btn small <%= "disabled" if @name == "Home" %>">&lt; Home</a>
+						<a href="/p/list" class="btn small <%= "disabled" if @name == "Known pages" %>">Page list</a>
+						<% if @page && !@editing %>
+							<a href="/p/new" class="btn small">New page</a>
+							<a href="/<%= @page.permalink %>/edit" class="btn small primary">Edit this</a>
+						<% end %>
+					</div>
 				<% end %>
 			</div>
 		</div>
