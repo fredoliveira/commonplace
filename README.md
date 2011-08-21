@@ -57,7 +57,7 @@ There's a number of specs to test out the Commonplace functionality available on
 
 You can also use `autotest` if you're so inclined. Running `autotest` in the commonplace root folder automatically monitors your spec files for changes and runs tests automatically. You can see the output in your terminal.
 
-### Contributing
+## Contributing
 
 This being an open source project, you are quite welcome to contribute by sending in your patches and pull requests - I'm quite open to that, as long as you don't detract Commonplace from the main goal of being simple, clean and objective. 
 
