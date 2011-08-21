@@ -8,7 +8,7 @@ Commonplace is not meant to be a markdown editor. There are a number of tools th
 
 ## Installing Commonplace
 
-Installing Commonplace is actually really easy - all you need is ruby (which if you're on a faily recent mac, you already have). If you know your way around Apache, see the instructions below about Configuring apache. If you don't, here's what you do:
+Installing Commonplace is actually really easy - all you need is ruby (which if you're on a fairly recent mac, you already have). If you know your way around Apache, see the instructions below about Configuring apache. If you don't, here's what you do:
 
 * Clone Commonplace to your local machine `git clone git://github.com/fredoliveira/commonplace.git` or use the Download link on Github
 * Install the shotgun gem to run Commonplace easily with `gem install shotgun`
