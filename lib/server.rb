@@ -1,4 +1,4 @@
-require 'lib/commonplace'
+require File.join(File.dirname(__FILE__), 'commonplace')
 require 'rubygems'
 require 'sinatra'
 require 'erb'
