@@ -56,3 +56,9 @@ If you already have Apache running on your machine, you can use passenger to ser
 There's a number of specs to test out the Commonplace functionality available on the `spec` directory. In order to run these tests, use the `rake` utility in the commonplace root folder. Green is good, red is bad. You shouldn't see any red.
 
 You can also use `autotest` if you're so inclined. Running `autotest` in the commonplace root folder automatically monitors your spec files for changes and runs tests automatically. You can see the output in your terminal.
+
+### Contributing
+
+This being an open source project, you are quite welcome to contribute by sending in your patches and pull requests - I'm quite open to that, as long as you don't detract Commonplace from the main goal of being simple, clean and objective. 
+
+If you want to contribute financially because you find this to be a neat tool (which makes me quite glad, I'll say), please consider donating 1 dollar per day to [Save the Children](http://www.savethechildren.org/) (or your favorite charity) instead. I'm fortunate enough to be able to do this for free, and there's people who'd make better use of your hard earned money. Thank you!
