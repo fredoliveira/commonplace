@@ -7,7 +7,7 @@ class CommonplaceServer < Sinatra::Base
 	# move these to a config?
 	set :sitename, 'Hexagon'
 	set :description, 'Personal wiki / Fred Oliveira'
-	set :dir, 'wiki' # path to the wiki directory
+	set :dir, '~/Documents/Dropbox/wiki' # path to the wiki directory
 	
 	# show the homepage
 	get '/' do
