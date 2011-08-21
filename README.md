@@ -20,15 +20,14 @@ Installing Commonplace is actually really easy. If you know your way around Apac
 Once you're installed, running Commonplace is trivial.
 
 * Head over to the directory where you installed commonplace
-* Run it with `shotgun config.ru`
-* Open `http://localhost:9393` in your browser
+* Run it with `shotgun config.ru` and open `http://localhost:9393` in your browser
 * You're done!
 
 ## Roadmap
 
 * <del>Improve typography on the main page block</del>
 * <del>Move configuration details to a separate file</del>
-* Create an easier way to run the wiki server
+* <del>Create an easier way to run the wiki server</del>
 * Allow users to edit pages in place and not just in their markdown editor
 * Prettier error (500/404) pages
 
