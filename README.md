@@ -6,6 +6,24 @@ Commonplace is not meant to be a markdown editor. There are a number of tools th
 
 ![Commonplace screenshot](http://madebyform.com/commonplace/img/screenshot.png)
 
+## Installing Commonplace
+
+Installing Commonplace is actually really easy. If you know your way around Apache, see the instructions below about Configuring apache. If you don't, here's what you do:
+
+* Clone Commonplace to your local machine `git clone git://github.com/fredoliveira/commonplace.git`
+* Edit the config file `config/commonplace.yml` to setup your wiki directory (for awesomeness, use somewhere inside your [Dropbox](http://getdropbox.com) folder to have constant syncing across your computers and automatic backups into the cloud)
+* Create a `home.md` file inside your new wiki directory and type stuff in there. Markdown stuff. You know the drill.
+* Install the shotgun gem to run Commonplace easily with `gem install shotgun`
+
+## Running Commonplace
+
+Once you're installed, running Commonplace is trivial.
+
+* Head over to the directory where you installed commonplace
+* Run it with `shotgun config.ru`
+* Open `http://localhost:9393` in your browser
+* You're done!
+
 ## Roadmap
 
 * <del>Improve typography on the main page block</del>
@@ -14,7 +32,7 @@ Commonplace is not meant to be a markdown editor. There are a number of tools th
 * Allow users to edit pages in place and not just in their markdown editor
 * Prettier error (500/404) pages
 
-## Things for the nerds
+## Things for the advanced nerds
 
 ### Configuring apache
 
