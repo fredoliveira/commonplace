@@ -1,9 +1,9 @@
+require 'commonplace'
 require 'rubygems'
 require 'sinatra'
-require 'commonplace'
 require 'erb'
 
-class Halp < Sinatra::Base
+class CommonplaceServer < Sinatra::Base
 	# move these to a config?
 	set :sitename, 'Hexagon'
 	set :description, 'Personal wiki / Fred Oliveira'
@@ -29,7 +29,7 @@ class Halp < Sinatra::Base
 	def show(name)
 		wiki = Commonplace.new(options.dir)
 		
-		if page = wiki.get(name)
+		if page = wiki.page(name)
 			@name = page.name
 			@content = page.content
 			erb :show

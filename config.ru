@@ -1,5 +1,5 @@
 require 'rubygems'
 require 'sinatra'
-require 'halp.rb'
+require 'server.rb'
 
-run Halp
+run CommonplaceServer
