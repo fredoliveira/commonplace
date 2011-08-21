@@ -1,6 +1,6 @@
 ## Commonplace introduction
 
-Welcome to Commonplace. Commonplace is a plain and simple markdown-based wiki system. It works by reading markdown files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)) and serving those files in HTML. The name comes from [Commonplace books](http://en.wikipedia.org/wiki/Commonplace_book).
+I write a lot, usually in [Markdown](http://daringfireball.net/projects/markdown/), but I usually keep all my markdown files scattered around my hard-drive. Commonplace is a simple wiki-like system to store and browse markdown files. It works by reading markdown files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)) and serving those files in HTML. The name comes from [Commonplace books](http://en.wikipedia.org/wiki/Commonplace_book).
 
 ![Mechanical Turk](http://madebyform.com/commonplace/img/turk.png)
 

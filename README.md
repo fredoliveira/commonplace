@@ -1,6 +1,6 @@
-# Commonplace
+# What is Commonplace?
 
-Commonplace is a plain and simple markdown-based wiki system. It works by reading markdown files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)) and serving those files in HTML. The name comes from [Commonplace books](http://en.wikipedia.org/wiki/Commonplace_book).
+I write a lot, usually in [Markdown](http://daringfireball.net/projects/markdown/), but I usually keep all my markdown files scattered around my hard-drive. Commonplace is a simple wiki-like system to store and browse markdown files. It works by reading markdown files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)) and serving those files in HTML. The name comes from [Commonplace books](http://en.wikipedia.org/wiki/Commonplace_book).
 
 Commonplace is not meant to be a markdown editor. There are a number of tools that do that job extremely well - I happen to use [Byword](http://bywordapp.com) for Mac but you get to choose your own poison. Changes you do in your editor will reflect upon refresh. For now, consider Commonplace a beautiful way to browse the documents you create using your Markdown editor.
 
@@ -8,9 +8,9 @@ Commonplace is not meant to be a markdown editor. There are a number of tools th
 
 ## Installing Commonplace
 
-Installing Commonplace is actually really easy. If you know your way around Apache, see the instructions below about Configuring apache. If you don't, here's what you do:
+Installing Commonplace is actually really easy - all you need is ruby (which if you're on a faily recent mac, you already have). If you know your way around Apache, see the instructions below about Configuring apache. If you don't, here's what you do:
 
-* Clone Commonplace to your local machine `git clone git://github.com/fredoliveira/commonplace.git`
+* Clone Commonplace to your local machine `git clone git://github.com/fredoliveira/commonplace.git` or use the Download link on Github
 * Install the shotgun gem to run Commonplace easily with `gem install shotgun`
 * You're ready to start using Commonplace
 
