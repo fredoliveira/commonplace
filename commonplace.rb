@@ -9,6 +9,11 @@ class Commonplace
 		@dir = dir
 	end
 	
+	# checks if our directory exists
+	def valid?
+		File.directory? dir
+	end
+	
 	# returns an array of known pages
 	def list
 		# if the directory doesn't exist, we bail out with a nil

@@ -5,9 +5,13 @@ describe Commonplace do
 		@w = Commonplace.new('spec/testwiki')
 	end
 	
-	it "returns nil for a non-existing directory" do
+	it "check returns true for an existing directory" do
+		@w.valid?.should == true
+	end
+	
+	it "check returns false for a non-existing directory" do
 		w = Commonplace.new('spec/testdir')
-		w.list.should == nil
+		w.valid?.should == false
 	end
 	
 	it "returns empty array for an empty directory" do

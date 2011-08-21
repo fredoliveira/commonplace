@@ -7,7 +7,7 @@ class CommonplaceServer < Sinatra::Base
 	# move these to a config?
 	set :sitename, 'Hexagon'
 	set :description, 'Personal wiki / Fred Oliveira'
-	set :dir, '~/Documents/Dropbox/wiki' # path to the wiki directory
+	set :dir, '/Users/fred/Documents/Dropbox/wiki' # path to the wiki directory
 	
 	# show the homepage
 	get '/' do
@@ -28,13 +28,18 @@ class CommonplaceServer < Sinatra::Base
 	# returns a given page (or file) inside our repository
 	def show(name)
 		wiki = Commonplace.new(options.dir)
-		
-		if page = wiki.page(name)
-			@name = page.name
-			@content = page.content
-			erb :show
+		if !wiki.valid?
+			# Should probably show a message saying the directory isn't configured correctly
+			"Directory not found"
 		else
-			halt 404
+			if page = wiki.page(name)
+				@name = page.name
+				@content = page.content
+				erb :show
+			else
+				#halt 404
+				"Page not found"
+			end
 		end
 	end
 end
