@@ -2,27 +2,30 @@
 <head>
 	<title><%= @name %> | <%= options.sitename %></title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="/css/reset.css">
-	<link rel="stylesheet" href="/css/text.css">
-	<link rel="stylesheet" href="/css/960.css">
-	<link rel="stylesheet" href="/css/screen.css">	
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/screen.css">
 </head>
 <body>
-	<div class="black clearfix">
-		<div class="container_12">
-			<div id="logo" class="grid_8 prefix_2">
-				<strong><%= options.sitename %></strong> 
-				<em><%= "- " + options.description if options.description %></em>
+	<div class="container">
+		<div class="row">
+			<div class="span10 offset3 columns">
+				<h1><%= @name %></h1>
+				<div id="page">
+					<%= yield %>
+				</div>
+				
+				<div class="tools">
+					<a href="/special/list" class="btn small <%= "disabled" if @name == "List" %>">Page list</a>
+					<a href="/" class="btn small <%= "disabled" if @name == "Home" %>">Home</a>
+				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="container_12">
-		<div id="content" class="grid_8 prefix_2">
-			<div class="note">
-				<%= yield %>
+		
+		<div class="row">
+			<div id="footer" class="span10 offset3 columns">
+				Powered by <a href="https://github.com/fredoliveira/commonplace">Commonplace</a>. Source and updates are <a href="https://github.com/fredoliveira/commonplace">on Github</a>.
 			</div>
-		</div>		
-	</div>
+		</div>
+	</div>	
 </body>
 </html>

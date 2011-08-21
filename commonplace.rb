@@ -14,15 +14,27 @@ class Commonplace
 		File.directory? dir
 	end
 	
-	# returns an array of known pages
-	def list
+	# returns a raw list of files in our wiki directory, sans . and ..
+	def files
 		# if the directory doesn't exist, we bail out with a nil
 		return nil unless File.directory? dir
 		
-		files = Dir.entries(dir)
-		files.delete(".")
-		files.delete("..")
-		return files
+		f = Dir.entries(dir)
+		f.delete(".")
+		f.delete("..")
+
+		return f
+	end
+	
+	def nameforfilename(filename)
+		filename.chomp(".md").gsub('_', ' ').capitalize
+	end
+	
+	# returns an array of known pages
+	def list
+		files.map! { |filename|
+			{:title => nameforfilename(filename), :link => filename.chomp(".md")}
+		}
 	end
 	
 	# reads the raw contents of a given file
@@ -42,7 +54,7 @@ class Commonplace
 		content = read(filename)
 		return nil if content.nil?
 		return Page.new(content, filename)
-	end
+	end	
 end
 
 class Page
