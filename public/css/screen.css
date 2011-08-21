@@ -5,6 +5,7 @@ body {
   font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
   background: #f6f6f6;
   color: #444;
+  margin-top: 30px;
 }
 #header {
   color: #666;
@@ -37,6 +38,9 @@ body {
 #page p {
   font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
   line-height: 1.7em;
+}
+#page img {
+  max-width: 100%;
 }
 .tools {
   text-align: right;
