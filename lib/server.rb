@@ -19,7 +19,8 @@ class CommonplaceServer < Sinatra::Base
 		show('home')
 	end
 	
-	get '/p:list' do
+	# show the known page list
+	get '/p/list' do
 		@name = "Known pages"
 		@pages = @wiki.list
 		erb :list
@@ -30,6 +31,7 @@ class CommonplaceServer < Sinatra::Base
 		show(params[:page])
 	end
 	
+	# edit a given page
 	get	'/:page/edit' do
 		@page = @wiki.page(params[:page])
 		@name = "Editing " + @page.name
@@ -37,9 +39,31 @@ class CommonplaceServer < Sinatra::Base
 		erb :edit
 	end
 	
+	# accept updates to a page
 	post '/:page/edit' do
 		page = @wiki.save(params[:page], params[:content])
 		redirect "/#{page.permalink}"
+	end
+	
+	# create a new page
+	get '/p/new' do
+		@name = "New page"
+		@editing = true
+		erb :new
+	end
+	
+	# save the new page
+	post '/p/save' do
+		if params[:filename] && params[:filename] != ""
+			filename = params[:filename].gsub(" ", "_").downcase
+			page = @wiki.save(filename, params[:content])
+			redirect "/#{page.permalink}"
+		else
+			@alert = "You're missing something important - a page name. Please add that."
+			@name = "New page"
+			@content = params[:content]
+			erb :new
+		end
 	end
 
 	# returns a given page (or file) inside our repository

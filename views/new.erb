@@ -1,0 +1,9 @@
+<form action="/p/save" method="post" class="form-stacked">
+	<label for="content">Page content</label>
+	<textarea id="content" class="xlarge" name="content"><%= @content if @content %></textarea>		
+	
+	<label for="name">Document name</label>
+	<input type="text" name="filename" id="filename" placeholder="Page name" />
+	
+	<input type="submit" value="Save page" class="btn primary small">
+</form>

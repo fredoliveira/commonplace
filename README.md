@@ -29,7 +29,7 @@ Once you're installed, running Commonplace is trivial.
 * <del>Move configuration details to a separate file</del>
 * <del>Create an easier way to run the wiki server</del>
 * <del>Create a basic wiki folder with info on running / getting started</del>
-* Allow users to edit pages in place and not just in their markdown editor
+* <del>Allow users to edit pages in place and not just in their markdown editor</del>
 * <del>Prettier error (500/404) pages</del>
 
 ## Things for the advanced nerds
