@@ -49,6 +49,17 @@ class Commonplace
 		return file.read		
 	end
 	
+	def save(filename, content)
+		# write the contents into the file
+		file = dir + '/' + filename + '.md'
+		f = File.new(file, "w")
+		f.write(content)
+		f.close
+		
+		# return the new file
+		return page(filename)
+	end
+	
 	# returns a page instance for a given filename
 	def page(filename)
 		content = read(filename)
@@ -58,10 +69,11 @@ class Commonplace
 end
 
 class Page
-	attr_accessor :name
+	attr_accessor :name, :permalink
 	
 	def initialize(content, filename)
 		@content = content # the raw page content
+		@permalink = filename
 		@name = filename.gsub('_', ' ').capitalize
 	end
 	

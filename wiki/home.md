@@ -4,7 +4,7 @@ I write a lot, usually in [Markdown](http://daringfireball.net/projects/markdown
 
 ![Mechanical Turk](http://madebyform.com/commonplace/img/turk.png)
 
-Commonplace is not meant to be a markdown editor. There are a number of tools that do that job extremely well - I happen to use [Byword](http://bywordapp.com) for Mac but you get to choose your own poison. Changes you do in your editor will reflect upon refresh. For now, consider Commonplace a beautiful way to browse the documents you create using your Markdown editor.
+Commonplace is not meant to be a markdown editor, even though it includes basic editing capabilities. There are a number of tools that do the markdown editing job extremely well - I happen to use [Byword](http://bywordapp.com) for Mac but you get to choose your own poison. If you edit the markdown files in your editor, changes are reflected upon refresh.
 
 ### Now that you're running
 

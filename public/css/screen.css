@@ -10,6 +10,9 @@ body {
 .center {
   text-align: center;
 }
+.right {
+  text-align: right;
+}
 #header {
   color: #666;
   margin-bottom: 3em;
@@ -57,6 +60,14 @@ body {
 }
 #page img {
   max-width: 100%;
+}
+#page form label {
+  margin-bottom: 10px;
+}
+#page form textarea {
+  width: 92%;
+  height: 300px;
+  margin-bottom: 10px;
 }
 .tools {
   text-align: right;

@@ -51,4 +51,9 @@ describe Commonplace do
 		w.page('home').name.should == "Home"
 		w.page('markdown_test').name.should == "Markdown test"
 	end
+	
+	it "should save a page correctly" do
+		@w.save('savetest', "This is a test save").class.should == Page
+		@w.page('savetest').raw.should == "This is a test save"
+	end
 end

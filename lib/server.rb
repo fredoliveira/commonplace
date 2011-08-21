@@ -19,15 +19,27 @@ class CommonplaceServer < Sinatra::Base
 		show('home')
 	end
 	
-	get '/special/list' do
+	get '/p:list' do
 		@name = "Known pages"
 		@pages = @wiki.list
 		erb :list
 	end
 
 	# show everything else
-	get '/*' do
-		show(params[:splat].first)
+	get '/:page' do
+		show(params[:page])
+	end
+	
+	get	'/:page/edit' do
+		@page = @wiki.page(params[:page])
+		@name = "Editing " + @page.name
+		@editing = true
+		erb :edit
+	end
+	
+	post '/:page/edit' do
+		page = @wiki.save(params[:page], params[:content])
+		redirect "/#{page.permalink}"
 	end
 
 	# returns a given page (or file) inside our repository
@@ -38,10 +50,10 @@ class CommonplaceServer < Sinatra::Base
 			@error = "We couldn't find the wiki directory your configuration is pointing to.<br/>Fix that, then come back - we'll be happier then."
 			erb :error500
 		else
-			if page = @wiki.page(name)
+			if @page = @wiki.page(name)
 				# may success come to those who enter here.
-				@name = page.name
-				@content = page.content
+				@name = @page.name
+				@content = @page.content
 				erb :show
 			else
 				status 404

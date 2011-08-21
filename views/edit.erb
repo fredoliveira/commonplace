@@ -1,0 +1,5 @@
+<form action="/<%= @page.permalink %>/edit" method="post" class="form-stacked">
+	<label for="content">Page content</label>
+	<textarea id="content" class="xlarge" name="content"><%= @page.raw %></textarea>		
+	<input type="submit" value="Save page" class="btn primary small">
+</form>

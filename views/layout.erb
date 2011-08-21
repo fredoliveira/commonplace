@@ -18,8 +18,11 @@
 				
 				<% if !@error %>
 				<div class="tools">
-					<a href="/special/list" class="btn small <%= "disabled" if @name == "Known pages" %>">Page list</a>
+					<% if @page && !@editing %>
+						<a href="/<%= @page.permalink %>/edit" class="btn small">Edit</a>
+					<% end %>
 					<a href="/" class="btn small <%= "disabled" if @name == "Home" %>">Home</a>
+					<a href="/p:list" class="btn small <%= "disabled" if @name == "Known pages" %>">Page list</a>
 				</div>
 				<% end %>
 			</div>
