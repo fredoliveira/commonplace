@@ -2,7 +2,7 @@
 
 Commonplace is a plain and simple markdown-based wiki system. It works by reading markdown files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)) and serving those files in HTML. 
 
-![Commonplace screenshot](http://cl.ly/3r29350l2x2A2j0f2Y40/Screen_Shot_2011-08-21_at_5.23.44_PM.png)
+![Commonplace screenshot](http://madebyform.com/commonplace/img/screenshot.png)
 
 ## Roadmap
 
