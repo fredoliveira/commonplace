@@ -6,8 +6,9 @@ Commonplace is a plain and simple markdown-based wiki system. It works by readin
 
 ## Roadmap
 
-* Improve typography on the main page block
+* Move configuration details to a separate file
 * Create an easier way to run the wiki server
+* Allow users to edit pages in place and not just in their markdown editor
 
 ## Things for the nerds
 
