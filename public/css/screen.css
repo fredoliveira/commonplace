@@ -35,9 +35,22 @@ body {
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
 }
+#page a {
+  color: #00a99d;
+  text-decoration: underline;
+}
+#page h1,
+#page h2,
+#page h3,
+#page h4,
+#page h5,
+#page h6 {
+  margin-bottom: 15px;
+}
 #page p {
   font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
   line-height: 1.7em;
+  margin-bottom: 1.5em;
 }
 #page img {
   max-width: 100%;

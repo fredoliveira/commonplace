@@ -11,29 +11,33 @@ Commonplace is not meant to be a markdown editor. There are a number of tools th
 Installing Commonplace is actually really easy. If you know your way around Apache, see the instructions below about Configuring apache. If you don't, here's what you do:
 
 * Clone Commonplace to your local machine `git clone git://github.com/fredoliveira/commonplace.git`
-* Edit the config file `config/commonplace.yml` to setup your wiki directory (for awesomeness, use somewhere inside your [Dropbox](http://getdropbox.com) folder to have constant syncing across your computers and automatic backups into the cloud)
-* Create a `home.md` file inside your new wiki directory and type stuff in there. Markdown stuff. You know the drill.
 * Install the shotgun gem to run Commonplace easily with `gem install shotgun`
+* You're ready to start using Commonplace
 
 ## Running Commonplace
 
 Once you're installed, running Commonplace is trivial.
 
-* Head over to the directory where you installed commonplace
-* Run it with `shotgun config.ru` and open `http://localhost:9393` in your browser
-* You're done!
+* Head over to the directory where you installed commonplace, if you're not there already
+* Run `shotgun config.ru` and open `http://localhost:9393` in your browser
+* You're done, get cranking!
 
 ## Roadmap
 
 * <del>Improve typography on the main page block</del>
 * <del>Move configuration details to a separate file</del>
 * <del>Create an easier way to run the wiki server</del>
+* Create a basic wiki folder with info on running / getting started
 * Allow users to edit pages in place and not just in their markdown editor
 * Prettier error (500/404) pages
 
 ## Things for the advanced nerds
 
-### Configuring apache
+### Configuring options
+
+You can edit the directory where Commonplace serves files from by editing the `config/commonplace.yml` file and restarting your server. For awesomeness, use a directory somewhere inside your [Dropbox](http://getdropbox.com) folder to have constant syncing across your computers and automatic backups into the cloud. Delicious. As long as this directory has a `home.md` file inside which is used as the main entry point for Commonplace, you're all set.
+
+### Using apache to host your Commonplace install
 
 If you already have Apache running on your machine, you can use passenger to serve Commonplace. While installing passenger is out of scope of this document, instructions [are available here](http://www.modrails.com/install.html). Once this is done, a VirtualHost entry like the one below (and a properly configured host - in the example below i use `wiki` as my host) should be all you need:
 

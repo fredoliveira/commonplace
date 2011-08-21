@@ -44,4 +44,11 @@ describe Commonplace do
 	it "should return a capitalized, underscore free title based on the file name" do
 		@w.page('test_spaces').name.should == "Test spaces"
 	end
+	
+	it "should work out of the box" do
+		w = Commonplace.new("wiki")
+		w.valid?.should == true
+		w.page('home').name.should == "Home"
+		w.page('markdown_test').name.should == "Markdown test"
+	end
 end
