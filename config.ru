@@ -1,5 +1,5 @@
 require 'rubygems'
 require 'sinatra'
-require 'server.rb'
+require 'lib/server.rb'
 
 run CommonplaceServer

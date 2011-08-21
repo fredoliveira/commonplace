@@ -1,4 +1,4 @@
-require 'commonplace'
+require 'lib/commonplace'
 
 describe Commonplace do
 	before(:each) do

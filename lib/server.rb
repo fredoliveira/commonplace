@@ -1,12 +1,11 @@
-require 'commonplace'
+require 'lib/commonplace'
 require 'rubygems'
 require 'sinatra'
 require 'erb'
 
 class CommonplaceServer < Sinatra::Base
 	# move these to a config?
-	set :sitename, 'Hexagon'
-	set :description, 'Personal wiki / Fred Oliveira'
+	set :sitename, 'Commonplace'
 	set :dir, '/Users/fred/Documents/Dropbox/wiki' # path to the wiki directory
 	
 	before do
