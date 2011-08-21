@@ -2,11 +2,13 @@ require 'lib/commonplace'
 require 'rubygems'
 require 'sinatra'
 require 'erb'
+require 'yaml'
 
-class CommonplaceServer < Sinatra::Base
+class CommonplaceServer < Sinatra::Base	
 	# move these to a config?
-	set :sitename, 'Commonplace'
-	set :dir, '/Users/fred/Documents/Dropbox/wiki' # path to the wiki directory
+	config = YAML::load(File.open("config/commonplace.yml"))
+	set :sitename, config['sitename']
+	set :dir, config['wikidir']
 	
 	before do
 		@wiki = Commonplace.new(options.dir)
