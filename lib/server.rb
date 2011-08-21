@@ -9,7 +9,7 @@ class CommonplaceServer < Sinatra::Base
 	config = YAML::load(File.open("config/commonplace.yml"))
 	set :sitename, config['sitename']
 	set :dir, config['wikidir']
-	
+
 	before do
 		@wiki = Commonplace.new(options.dir)
 	end
@@ -33,16 +33,20 @@ class CommonplaceServer < Sinatra::Base
 	# returns a given page (or file) inside our repository
 	def show(name)
 		if !@wiki.valid?
-			# Should probably show a message saying the directory isn't configured correctly
-			"Directory not found"
+			status 500
+			@name = "Wiki directory not found"
+			@error = "We couldn't find the wiki directory your configuration is pointing to.<br/>Fix that, then come back - we'll be happier then."
+			erb :error500
 		else
 			if page = @wiki.page(name)
+				# may success come to those who enter here.
 				@name = page.name
 				@content = page.content
 				erb :show
 			else
-				#halt 404
-				"Page not found"
+				status 404
+				@name = "404: Page not found"
+				erb :error404
 			end
 		end
 	end

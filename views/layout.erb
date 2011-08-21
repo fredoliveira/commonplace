@@ -18,10 +18,12 @@
 					<%= yield %>
 				</div>
 				
+				<% if !@error %>
 				<div class="tools">
 					<a href="/special/list" class="btn small <%= "disabled" if @name == "Known pages" %>">Page list</a>
 					<a href="/" class="btn small <%= "disabled" if @name == "Home" %>">Home</a>
 				</div>
+				<% end %>
 			</div>
 		</div>
 		
