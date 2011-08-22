@@ -1,10 +1,13 @@
-require 'lib/commonplace'
+require File.join('lib', 'commonplace')
+require File.join('lib', 'server')
+require 'rack/test'
 
 describe Commonplace do
+	
 	before(:each) do
 		@w = Commonplace.new('spec/testwiki')
 	end
-	
+		
 	it "check returns true for an existing directory" do
 		@w.valid?.should == true
 	end
@@ -55,5 +58,50 @@ describe Commonplace do
 	it "should save a page correctly" do
 		@w.save('savetest', "This is a test save").class.should == Page
 		@w.page('savetest').raw.should == "This is a test save"
+	end
+end
+
+describe CommonplaceServer do
+	include Rack::Test::Methods
+	
+	def app
+		CommonplaceServer
+	end
+	
+	it "renders the homepage successfully" do
+		get '/'
+		last_response.should be_ok
+	end
+	
+	it "renders an existing page successfully" do
+		get '/home'
+		last_response.should be_ok
+	end
+	
+	it "returns a 404 when trying to view a page that doesnt exist" do
+		get '/anonexistingpagehopefully'
+		last_response.should_not be_ok
+		last_response.status.should == 404
+	end
+
+	it "renders the edit page for an existing page successfully" do
+		get '/home/edit'
+		last_response.should be_ok
+	end
+
+	it "returns a 404 when trying to edit a page that doesnt exist" do
+		get '/anonexistingpagehopefully/edit'
+		last_response.should_not be_ok
+		last_response.status.should == 404
+	end
+	
+	it "renders the page list successfully" do
+		get '/p/list'
+		last_response.should be_ok
+	end
+	
+	it "renders the new page successfully" do
+		get '/p/new'
+		last_response.should be_ok
 	end
 end

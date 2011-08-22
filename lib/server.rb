@@ -40,9 +40,16 @@ class CommonplaceServer < Sinatra::Base
 	# edit a given page
 	get	'/:page/edit' do
 		@page = @wiki.page(params[:page])
-		@name = "Editing " + @page.name
-		@editing = true
-		erb :edit
+		
+		if @page
+			@name = "Editing " + @page.name
+			@editing = true
+			erb :edit
+		else
+			status 404
+			@name = "404: Page not found"
+			erb :error404
+		end
 	end
 	
 	# accept updates to a page
