@@ -31,6 +31,12 @@ class CommonplaceServer < Sinatra::Base
 		show(params[:page])
 	end
 	
+	# show everything else
+	get '/:page/raw' do
+		@page = @wiki.page(params[:page])
+		@page.raw.to_s
+	end
+	
 	# edit a given page
 	get	'/:page/edit' do
 		@page = @wiki.page(params[:page])

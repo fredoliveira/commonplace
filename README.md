@@ -1,8 +1,8 @@
 # What is Commonplace?
 
-I write a lot, usually in [Markdown](http://daringfireball.net/projects/markdown/), but I usually keep all my markdown files scattered around my hard-drive. Commonplace is a simple wiki-like system to store and browse markdown files. It works by reading markdown files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)) and serving those files in HTML. The name comes from [Commonplace books](http://en.wikipedia.org/wiki/Commonplace_book).
+I write quite a bit, usually in Markdown ([example doc](/markdown_test)), but I usually keep all my markdown files scattered around my hard-drive. Commonplace is a simple wiki-like system to store and browse your markdown files. It works by reading `.md` files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)). The name draws inspiration from [commonplace books](http://en.wikipedia.org/wiki/Commonplace_book).
 
-Commonplace is not meant to be a markdown editor. There are a number of tools that do that job extremely well - I happen to use [Byword](http://bywordapp.com) for Mac but you get to choose your own poison. Changes you do in your editor will reflect upon refresh. For now, consider Commonplace a beautiful way to browse the documents you create using your Markdown editor.
+Commonplace is not meant to be a markdown editor, even though it includes basic editing capabilities. There are a number of tools that do the markdown editing job extremely well - I happen to use [Byword](http://bywordapp.com) for Mac but you get to choose your own poison. If you edit the markdown files in an external editor, changes are reflected here after a refresh.
 
 ![Commonplace screenshot](http://madebyform.com/commonplace/img/commonplace.png)
 
