@@ -25,15 +25,11 @@ class Commonplace
 
 		return f
 	end
-	
-	def nameforfilename(filename)
-		filename.chomp(".md").gsub('_', ' ').capitalize
-	end
-	
+		
 	# returns an array of known pages
 	def list
 		files.map! { |filename|
-			{:title => nameforfilename(filename), :link => filename.chomp(".md")}
+			{:title => file_to_pagename(filename), :link => filename.chomp(".md")}
 		}
 	end
 	
@@ -66,6 +62,26 @@ class Commonplace
 		return nil if content.nil?
 		return Page.new(content, filename)
 	end	
+	
+	# converts a pagename into the permalink form
+	def get_permalink(pagename)
+		pagename.gsub(" ", "_").downcase
+	end
+	
+	# converts a permalink to the full page name
+	def get_pagename(permalink)
+		permalink.gsub('_', ' ').capitalize
+	end
+	
+	# converts a pagename into the full filename
+	def get_filename(pagename)
+		get_permalink(pagename) + ".md"
+	end
+	
+	# converts a filename into a page title
+	def file_to_pagename(filename)
+		filename.chomp(".md").gsub('_', ' ').capitalize
+	end
 end
 
 class Page

@@ -59,6 +59,14 @@ describe Commonplace do
 		@w.save('savetest', "This is a test save").class.should == Page
 		@w.page('savetest').raw.should == "This is a test save"
 	end
+	
+	it "should convert pages to files and back" do
+		fwd = @w.get_permalink("This is a test page name")
+		fwd.should == "this_is_a_test_page_name"
+		rev = @w.get_pagename(fwd)
+		rev.should == "This is a test page name"
+		@w.get_filename("This is a test page name").should == "this_is_a_test_page_name.md"
+	end
 end
 
 describe CommonplaceServer do
