@@ -10,25 +10,14 @@
 	<%= @config %>
 	<div class="container">
 		<div class="row">
-			<div class="span10 offset3 columns">
-				<% if !@error %>
-					<div class="tools top">
-						<a href="/" class="btn small <%= "disabled" if @name == "Home" %>">&lt; Home</a>
-						<a href="/p/list" class="btn small <%= "disabled" if @name == "Known pages" %>">Page list</a>
-						<% if @page && !@editing %>
-							<a href="/p/new" class="btn small">New page</a>
-							<a href="/<%= @page.permalink %>/edit" class="btn small primary">Edit this</a>
-						<% end %>
-					</div>
-				<% end %>
-				
+			<div class="span12 offset2 columns">
 				<h1 class="title"><%= @name %></h1>
 
 				<% if @alert %>
 					<div class="alert-message error"><%= @alert %></div>
 				<% end %>
 				
-				<div id="page">					
+				<div id="page">
 					<%= yield %>
 				</div>
 				
