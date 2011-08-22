@@ -8,7 +8,7 @@ This page tests the rendering and displaying of Markdown content. It is called `
 
 #### And this one separates more things, but is a bit smaller
 
-To illustrate lists and how they work, here is the discography for [Boards of Canada](http://en.wikipedia.org/wiki/Boards_of_Canada). It also shows italics and bold usage:
+To illustrate lists and how they work, here is the discography for [Boards of Canada](http://en.wikipedia.org/wiki/Boards_of_Canada). It also shows usage for bold and italics:
 
 * *1995:* **"Twoism"** - (Music70)
 * *1996:* **"Hi Scores"** - (Skam)
