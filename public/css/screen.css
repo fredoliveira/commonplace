@@ -14,13 +14,6 @@ sup {
   font-size: 11px;
   color: #999;
 }
-#header {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-#header h1.title {
-  font-size: 28px;
-}
 #footer {
   margin-bottom: 4em;
   margin-top: 5em;
@@ -35,15 +28,26 @@ sup {
 }
 #page {
   background: #fff;
+  color: #333;
   border: 1px solid #ddd;
-  padding: 2em;
+  padding: 25px;
   margin-bottom: 1em;
-  -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
+}
+#page h1.title {
+  margin: -25px -25px 25px -25px;
+  padding: 15px 25px;
+  background: #fffdef;
+  font-size: 24px;
+  border-bottom: 1px solid #eee;
+  -moz-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
+}
+#page h1.title a {
+  text-decoration: none;
 }
 #page a {
   color: #00a99d;
@@ -56,6 +60,7 @@ sup {
 #page h5,
 #page h6 {
   margin-bottom: 15px;
+  color: #333;
 }
 #page p {
   font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
@@ -66,11 +71,14 @@ sup {
 #page img {
   max-width: 100%;
 }
+#page form {
+  padding-left: 0 !important;
+}
 #page form label {
   margin-bottom: 10px;
 }
 #page form textarea {
-  width: 92%;
+  width: 98%;
   height: 300px;
   margin-bottom: 10px;
 }
