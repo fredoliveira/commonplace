@@ -1,21 +1,21 @@
-# What is Commonplace?
+## What is Commonplace?
 
 I write quite a bit, usually in Markdown ([example doc](/markdown_test)), but I usually keep all my markdown files scattered around my hard-drive. Commonplace is a simple wiki-like system to store and browse your markdown files. It works by reading `.md` files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)). The name draws inspiration from [commonplace books](http://en.wikipedia.org/wiki/Commonplace_book).
 
 Commonplace is not meant to be a markdown editor, even though it includes basic editing capabilities. There are a number of tools that do the markdown editing job extremely well - I happen to use [Byword](http://bywordapp.com) for Mac but you get to choose your own poison. If you edit the markdown files in an external editor, changes are reflected here after a refresh.
 
-![Commonplace screenshot](http://madebyform.com/commonplace/img/commonplace.png)
+![Commonplace screenshot](http://madebyform.com/commonplace/img/screen.png)
 
-## Installing Commonplace
+### Installing Commonplace
 
 Installing Commonplace is actually really easy - all you need is ruby (which if you're on a fairly recent mac, you already have). If you know your way around Apache, see the instructions below about Configuring apache. If you don't, here's what you do:
 
-* Clone Commonplace to your local machine `git clone git://github.com/fredoliveira/commonplace.git` or use the Download link on Github
+* Clone Commonplace to your local machine `git clone git://github.com/fredoliveira/commonplace.git`
 * Install bundler, if you haven't got it yet `gem install bundler`
 * Using bundler, install Commonplace's dependencies with `bundle install`
 * You're ready to start using Commonplace
 
-## Running Commonplace
+### Running Commonplace
 
 Once you're installed, running Commonplace is trivial.
 
@@ -23,7 +23,7 @@ Once you're installed, running Commonplace is trivial.
 * Run `shotgun config.ru` and open `http://localhost:9393` in your browser
 * You're done, get cranking!
 
-## Roadmap
+### Roadmap
 
 * <del>Improve typography on the main page block</del>
 * <del>Move configuration details to a separate file</del>
