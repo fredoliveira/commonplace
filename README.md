@@ -25,6 +25,7 @@ Once you're installed, running Commonplace is trivial.
 
 ### Roadmap
 
+* Create a syntax to link between Markdown documents (probably `[[like this]]`)
 * <del>Improve typography on the main page block</del>
 * <del>Move configuration details to a separate file</del>
 * <del>Create an easier way to run the wiki server</del>
