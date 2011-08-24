@@ -3,7 +3,6 @@ require File.join('lib', 'server')
 require 'rack/test'
 
 describe Commonplace do
-	
 	before(:each) do
 		@w = Commonplace.new('spec/testwiki')
 	end
@@ -28,11 +27,11 @@ describe Commonplace do
 	end
 	
 	it "should return nil when accessing a non-existing file" do
-		@w.read('testfile').should == nil
+		@w.page('testfile').should == nil
 	end
 	
 	it "should return contents of a file when accessing an existing file" do
-		@w.read('test').should == "Test file - don't change these contents."
+		@w.page('test').raw.should == "Test file - don't change these contents."
 		@w.page('test').content.should == "<p>Test file - don't change these contents.</p>\n"
 	end
 	
@@ -66,6 +65,10 @@ describe Commonplace do
 		rev = @w.get_pagename(fwd)
 		rev.should == "This is a test page name"
 		@w.get_filename("This is a test page name").should == "this_is_a_test_page_name.md"
+	end
+	
+	it "should look for links in double square brackets and create anchor tags" do
+		@w.page('linktest').content.should == "<p><a class=\"internal\" href=\"/page_name\">Page name</a></p>\n"
 	end
 end
 

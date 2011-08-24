@@ -33,36 +33,6 @@ class Commonplace
 		}
 	end
 	
-	# reads the raw contents of a given file
-	def read(filename)
-		file = dir + '/' + filename + '.md'
-		
-		# bail out if the file doesn't exist
-		return nil unless File.exists? file
-		
-		# return the file contents if the file exists
-		file = File.new file
-		return file.read		
-	end
-	
-	def save(filename, content)
-		# write the contents into the file
-		file = dir + '/' + filename + '.md'
-		f = File.new(file, "w")
-		f.write(content)
-		f.close
-		
-		# return the new file
-		return page(filename)
-	end
-	
-	# returns a page instance for a given filename
-	def page(filename)
-		content = read(filename)
-		return nil if content.nil?
-		return Page.new(content, filename)
-	end	
-	
 	# converts a pagename into the permalink form
 	def get_permalink(pagename)
 		pagename.gsub(" ", "_").downcase
@@ -82,6 +52,34 @@ class Commonplace
 	def file_to_pagename(filename)
 		filename.chomp(".md").gsub('_', ' ').capitalize
 	end
+		
+	# returns a page instance for a given filename
+	def page(filename)
+		# check if the file exists, return nil if not
+		file = dir + '/' + filename + '.md'
+		return nil unless File.exists? file # bail out if the file doesn't exist
+		
+		# check if we can read content, return nil if not
+		content = File.new(file).read
+		return nil if content.nil?
+		
+		# return a new Page instance
+		return Page.new(content, filename)
+	end
+
+	# create a new page and return it when done
+	def save(filename, content)
+		# FIXME - if the file exists, this should bail out
+		
+		# write the contents into the file
+		file = dir + '/' + filename + '.md'
+		f = File.new(file, "w")
+		f.write(content)
+		f.close
+		
+		# return the new file
+		return page(filename)
+	end
 end
 
 class Page
@@ -95,11 +93,19 @@ class Page
 	
 	# return html for markdown formatted page content
 	def content
-		return Redcarpet.new(@content).to_html
+		return Redcarpet.new(parse_links(@content)).to_html
 	end
 	
 	# return raw page content
 	def raw
 		return @content
 	end
+	
+	# looks for links in a page's content and changes them into anchor tags
+	def parse_links(content)
+		return content.gsub(/\[\[(.+?)\]\]/m) do
+			name = $1
+			"<a class=\"internal\" href=\"/#{name.downcase.gsub(' ', '_')}\">" + name + '</a>'
+		end.to_s
+	end	
 end

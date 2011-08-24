@@ -50,8 +50,19 @@ sup {
   text-decoration: none;
 }
 #page a {
-  color: #00a99d;
-  text-decoration: underline;
+  color: #00998f;
+  text-decoration: none;
+}
+#page a.internal {
+  text-decoration: none;
+  padding: 0 3px 2px;
+  font-family: Monaco, Andale Mono, Courier New, monospace;
+  font-size: 12px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: #ccf4fe;
+  color: #666;
 }
 #page h1,
 #page h2,

@@ -91,6 +91,7 @@ class CommonplaceServer < Sinatra::Base
 				# may success come to those who enter here.
 				@name = @page.name
 				@content = @page.content
+				
 				erb :show
 			else
 				status 404
