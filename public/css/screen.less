@@ -1,3 +1,5 @@
+@import "bootstrap/bootstrap.less";
+
 html {
 	background: #f6f6f6;
 }
@@ -16,6 +18,10 @@ body {
 sup {
 	font-size: 11px;
 	color: #999;
+}
+
+code {
+	font-size: 11px;
 }
 
 #footer {
@@ -39,10 +45,8 @@ sup {
 	padding: 25px;
 	margin-bottom: 1em;
 	
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
+	.border-radius();
+	.box-shadow(0 1px 3px rgba(0, 0, 0, 0.125));
 	
 	h1.title {
 		margin: -25px -25px 25px -25px;
@@ -50,9 +54,7 @@ sup {
 		background: #fffdef;
 		font-size: 24px;
 		border-bottom: 1px solid #eee;
-
-		-moz-border-radius: 6px 6px 0 0;
-		border-radius: 6px 6px 0 0;
+		.border-radius(6px 6px 0 0);
 		
 		a {
 			text-decoration: none;
@@ -65,11 +67,10 @@ sup {
 		
 		&.internal {
 			text-decoration: none;
-			padding:0 3px 2px;
+			padding: 2px 3px;
 			font-family: Monaco, Andale Mono, Courier New, monospace;
-			font-size:11px;
-			-moz-border-radius:3px;
-			border-radius:3px;
+			font-size: 11px;
+			.border-radius(3px);
 			background: #ccf4fe;
 			color: #666;
 		}

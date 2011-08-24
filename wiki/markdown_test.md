@@ -1,6 +1,6 @@
 ## This page is a markdown example
 
-This page tests the rendering and displaying of Markdown content. It is called `markdown_test.md` and you are free to delete it. It is also a pretty good example of how to structure content using markdown syntax, so you can also use it as a learning tool. 
+This page tests the rendering and displaying of Markdown content. It is called `markdown_test.md` and it's okay to delete it. It is also a pretty good example of how to structure content using markdown syntax, so you can also use it as a learning tool. 
 
 ### This headline separates things
 
