@@ -1,6 +1,6 @@
 ## What is Commonplace?
 
-I write quite a bit, usually in Markdown ([example doc](/markdown_test)), but I usually keep all my markdown files scattered around my hard-drive. Commonplace is a simple wiki-like system to store and browse your markdown files. It works by reading `.md` files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)). The name draws inspiration from [commonplace books](http://en.wikipedia.org/wiki/Commonplace_book).
+I write quite a bit, usually in Markdown, but I usually keep all my markdown files scattered around my hard-drive. Commonplace is a simple wiki-like system to store and browse your markdown files. It works by reading `.md` files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)). The name draws inspiration from [commonplace books](http://en.wikipedia.org/wiki/Commonplace_book).
 
 Commonplace is not meant to be a markdown editor, even though it includes basic editing capabilities. There are a number of tools that do the markdown editing job extremely well - I happen to use [Byword](http://bywordapp.com) for Mac but you get to choose your own poison. If you edit the markdown files in an external editor, changes are reflected here after a refresh.
 
@@ -34,6 +34,10 @@ Once you're installed, running Commonplace is trivial.
 * <del>Allow users to edit pages in place and not just in their markdown editor</del>
 * <del>Prettier error (500/404) pages</del>
 
+### Making-of
+
+* Commonplace makes use of [Twitter's Bootstrap](https://github.com/twitter/bootstrap/) toolkit
+
 ## Things for the advanced nerds
 
 ### Configuring options
@@ -65,5 +69,3 @@ You can also use `autotest` if you're so inclined. Running `autotest` in the com
 This being an open source project, you are quite welcome to contribute by sending in your patches and pull requests - I'm quite open to that, as long as you don't detract Commonplace from the main goal of being simple, clean and objective. 
 
 If you want to contribute financially because you find this to be a neat tool (which makes me quite glad, I'll say), please consider donating 1 dollar per day to [Save the Children](http://www.savethechildren.org/) (or your favorite charity) instead. I'm fortunate enough to be able to do this for free, and there's people who'd make better use of your hard earned money. Thank you!
-
-Note: Commonplace makes use of [Twitter's Bootstrap](https://github.com/twitter/bootstrap/) toolkit
