@@ -1,1 +1,1 @@
-[[Page name]]
+[[Test]]

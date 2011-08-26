@@ -54,9 +54,9 @@ class Commonplace
 	end
 		
 	# returns a page instance for a given filename
-	def page(filename)
+	def page(permalink)
 		# check if the file exists, return nil if not
-		file = dir + '/' + filename + '.md'
+		file = dir + '/' + permalink + '.md'
 		return nil unless File.exists? file # bail out if the file doesn't exist
 		
 		# check if we can read content, return nil if not
@@ -64,7 +64,7 @@ class Commonplace
 		return nil if content.nil?
 		
 		# return a new Page instance
-		return Page.new(content, filename)
+		return Page.new(content, permalink, self)
 	end
 
 	# create a new page and return it when done
@@ -85,10 +85,11 @@ end
 class Page
 	attr_accessor :name, :permalink
 	
-	def initialize(content, filename)
+	def initialize(content, filename, wiki)
 		@content = content # the raw page content
 		@permalink = filename
 		@name = filename.gsub('_', ' ').capitalize
+		@wiki = wiki
 	end
 	
 	# return html for markdown formatted page content
@@ -105,7 +106,13 @@ class Page
 	def parse_links(content)
 		return content.gsub(/\[\[(.+?)\]\]/m) do
 			name = $1
-			"<a class=\"internal\" href=\"/#{name.downcase.gsub(' ', '_')}\">" + name + '</a>'
+			permalink = name.downcase.gsub(' ', '_')
+			
+			if @wiki.page(permalink)
+				"<a class=\"internal\" href=\"/#{permalink}\">" + name + '</a>'
+			else 
+				"<a class=\"internal new\" href=\"/#{permalink}\">" + name + '</a>'
+			end
 		end.to_s
 	end	
 end

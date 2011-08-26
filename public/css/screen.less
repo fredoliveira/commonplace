@@ -61,6 +61,10 @@ code {
 		}
 	}
 	
+	code {
+		background: #eee;
+	}
+	
 	a {
 		color: #00998f;
 		text-decoration: none;
@@ -71,8 +75,14 @@ code {
 			font-family: Monaco, Andale Mono, Courier New, monospace;
 			font-size: 11px;
 			.border-radius(3px);
+			border: 1px solid #b1edfc;
 			background: #ccf4fe;
 			color: #666;
+			
+			&.new {
+				background: #fecccc;
+				border: 1px solid #fcb1b1;
+			}
 		}
 	}
 	

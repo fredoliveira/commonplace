@@ -68,7 +68,11 @@ describe Commonplace do
 	end
 	
 	it "should look for links in double square brackets and create anchor tags" do
-		@w.page('linktest').content.should == "<p><a class=\"internal\" href=\"/page_name\">Page name</a></p>\n"
+		@w.page('linktest').content.should == "<p><a class=\"internal\" href=\"/test\">Test</a></p>\n"
+	end
+	
+	it "should highlight links to pages that don't exist with the correct class" do
+		@w.page('linktest2').content.should == "<p><a class=\"internal new\" href=\"/non_existing_page\">Non existing page</a></p>\n"
 	end
 end
 
