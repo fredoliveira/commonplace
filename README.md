@@ -25,14 +25,16 @@ Once you're installed, running Commonplace is trivial.
 
 ### Roadmap
 
-* <del>Create a syntax to link between Markdown documents (probably `[[like this]]`)</del>
-* Reorganize classes and modules
+* <del>Prettier error (500/404) pages</del>
 * <del>Improve typography on the main page block</del>
-* <del>Move configuration details to a separate file</del>
+* <del>Allow users to edit pages in place and not just in their markdown editor</del>
 * <del>Create an easier way to run the wiki server</del>
 * <del>Create a basic wiki folder with info on running / getting started</del>
-* <del>Allow users to edit pages in place and not just in their markdown editor</del>
-* <del>Prettier error (500/404) pages</del>
+* <del>Move configuration details to a separate file</del>
+* <del>Create a syntax to link between Markdown documents (probably `[[like this]]`)</del>
+* <del>Link pages that don't exist differently</del>
+
+* Reorganize classes and modules
 
 ### Making-of
 
