@@ -1,6 +1,6 @@
 ## An introduction you should read
 
-I write quite a bit, [[usually]] in Markdown (see [[Markdown test]] for an example of how to use Markdown syntax), but I usually keep all my markdown files scattered around my hard-drive. Commonplace is a simple wiki-like system to store and browse your markdown files. It works by reading `.md` files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)). The name draws inspiration from [commonplace books](http://en.wikipedia.org/wiki/Commonplace_book).
+I write quite a bit, usually in Markdown (see [[Markdown test]] for an example of how to use Markdown syntax), but I usually keep all my markdown files scattered around my hard-drive. Commonplace is a simple wiki-like system to store and browse your markdown files. It works by reading `.md` files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)). The name draws inspiration from [commonplace books](http://en.wikipedia.org/wiki/Commonplace_book).
 
 ![Mechanical Turk](/img/mechanicalturk.png)
 

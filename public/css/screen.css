@@ -233,6 +233,7 @@ sup{font-size:11px;color:#999;}
 code{font-size:11px;}
 #footer{margin-bottom:4em;margin-top:5em;padding-top:0.5em;border-top:1px solid #ddd;font-size:11px;color:#aaa;}#footer a{color:#999;text-decoration:underline;}
 #page{background:#fff;color:#333;border:1px solid #ddd;padding:25px;margin-bottom:1em;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.125);-moz-box-shadow:0 1px 3px rgba(0, 0, 0, 0.125);box-shadow:0 1px 3px rgba(0, 0, 0, 0.125);}#page h1.title{margin:-25px -25px 25px -25px;padding:15px 25px;background:#fffdef;font-size:24px;border-bottom:1px solid #eee;-webkit-border-radius:6px 6px 0 0;-moz-border-radius:6px 6px 0 0;border-radius:6px 6px 0 0;}#page h1.title a{text-decoration:none;}
+#page ul li{line-height:1.7em;}
 #page code{background:#eee;}
 #page a{color:#00998f;text-decoration:none;}#page a.internal{text-decoration:none;padding:2px 3px;font-family:Monaco, Andale Mono, Courier New, monospace;font-size:11px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;border:1px solid #b1edfc;background:#ccf4fe;color:#666;}#page a.internal.new{background:#fecccc;border:1px solid #fcb1b1;}
 #page h1,#page h2,#page h3,#page h4,#page h5,#page h6{margin-bottom:15px;color:#333;}
