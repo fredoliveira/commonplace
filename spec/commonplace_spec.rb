@@ -119,4 +119,9 @@ describe CommonplaceServer do
 		get '/p/new'
 		last_response.should be_ok
 	end
+	
+	it "renders the new page for a specific page successfully" do
+		get '/p/new/anonexistingpagehopefully'
+		last_response.should be_ok
+	end
 end
