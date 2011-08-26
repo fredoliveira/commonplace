@@ -33,7 +33,6 @@ Once you're installed, running Commonplace is trivial.
 * <del>Move configuration details to a separate file</del>
 * <del>Create a syntax to link between Markdown documents (probably `[[like this]]`)</del>
 * <del>Link pages that don't exist differently</del>
-
 * Reorganize classes and modules
 
 ### Making-of

@@ -57,10 +57,18 @@ class CommonplaceServer < Sinatra::Base
 		page = @wiki.save(params[:page], params[:content])
 		redirect "/#{page.permalink}"
 	end
+
+	# create a new page
+	get '/p/new/?' do
+		@name = "New page"
+		@editing = true
+		erb :new
+	end
 	
 	# create a new page
-	get '/p/new' do
-		@name = "New page"
+	get '/p/new/:pagename' do
+		@newpagename = @wiki.get_pagename(params[:pagename])
+		@name = "Creating #{@newpagename}"
 		@editing = true
 		erb :new
 	end
@@ -91,10 +99,10 @@ class CommonplaceServer < Sinatra::Base
 				# may success come to those who enter here.
 				@name = @page.name
 				@content = @page.content
-				
 				erb :show
 			else
 				status 404
+				@newpage = name
 				@name = "404: Page not found"
 				erb :error404
 			end

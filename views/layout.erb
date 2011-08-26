@@ -26,6 +26,8 @@
 						<% if @page && !@editing %>
 							<a href="/p/new" class="btn small">New page</a>
 							<a href="/<%= @page.permalink %>/edit" class="btn small primary">Edit this</a>
+						<% elsif @newpage %>
+							<a href="/p/new/<%= @newpage %>" class="btn small primary">Create <%= @wiki.file_to_pagename(@newpage) %></a>
 						<% end %>
 					</div>
 				<% end %>
