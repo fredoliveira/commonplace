@@ -5,13 +5,17 @@ require 'erb'
 require 'yaml'
 
 class CommonplaceServer < Sinatra::Base	
-	# move these to a config?
-	config = YAML::load(File.open("config/commonplace.yml"))
-	set :sitename, config['sitename']
-	set :dir, config['wikidir']
+
+	configure do 
+		config = YAML::load(File.open("config/commonplace.yml"))
+		set :sitename, config['sitename']
+		set :dir, config['wikidir']
+   		#set :public_folder, "public"
+   		set :views, "views"
+	end
 
 	before do
-		@wiki = Commonplace.new(options.dir)
+		@wiki = Commonplace.new(settings.dir)
 	end
 	
 	# show the homepage

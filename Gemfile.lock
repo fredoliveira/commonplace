@@ -3,6 +3,8 @@ GEM
   specs:
     diff-lcs (1.1.2)
     rack (1.3.2)
+    rack-protection (1.1.4)
+      rack
     rack-test (0.5.7)
       rack (>= 1.0)
     redcarpet (1.17.2)
@@ -16,10 +18,11 @@ GEM
     rspec-mocks (2.6.0)
     shotgun (0.9)
       rack (>= 1.0)
-    sinatra (1.2.6)
-      rack (~> 1.1)
-      tilt (< 2.0, >= 1.2.2)
-    tilt (1.3.2)
+    sinatra (1.3.0)
+      rack (~> 1.3)
+      rack-protection (~> 1.1)
+      tilt (~> 1.3)
+    tilt (1.3.3)
 
 PLATFORMS
   ruby
@@ -30,4 +33,4 @@ DEPENDENCIES
   redcarpet
   rspec
   shotgun
-  sinatra
+  sinatra (>= 1.3)
