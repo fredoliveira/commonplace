@@ -1,2 +1,3 @@
 .DS_Store
 tmp/*
+config/commonplace.yml

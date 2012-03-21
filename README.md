@@ -13,6 +13,7 @@ Installing Commonplace is actually really easy - all you need is ruby (which if 
 * Clone Commonplace to your local machine `git clone git://github.com/fredoliveira/commonplace.git`
 * Install bundler, if you haven't got it yet `gem install bundler`
 * Using bundler, install Commonplace's dependencies with `bundle install`
+* Create `config/commonplace.yml`, based on the `commonplace.yml.example` file
 * You're ready to start using Commonplace
 
 ### Running Commonplace
