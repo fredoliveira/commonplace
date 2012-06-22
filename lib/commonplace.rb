@@ -60,7 +60,7 @@ class Commonplace
 		return nil unless File.exists? file # bail out if the file doesn't exist
 		
 		# check if we can read content, return nil if not
-		content = File.new(file).read
+		content = File.new(file, :encoding => "UTF-8").read
 		return nil if content.nil?
 		
 		# return a new Page instance
