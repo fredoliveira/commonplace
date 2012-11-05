@@ -22,10 +22,10 @@
 				<% if !@error %>
 					<div class="tools">
 						<a href="/" class="btn small <%= "disabled" if @name == "Home" %>">&lt; Home</a>
-						<a href="/p/list" class="btn small <%= "disabled" if @name == "Known pages" %>">Page list</a>
-						<% if @page && !@editing %>
+						<a href="/list" class="btn small <%= "disabled" if @name == "Known pages" %>">Page list</a>
+						<% if @page && !@editing && !settings.locked %>
 							<a href="/p/new" class="btn small">New page</a>
-							<a href="/<%= @page.permalink %>/edit" class="btn small primary">Edit this</a>
+							<a href="/p/<%= @page.permalink %>/edit" class="btn small primary">Edit this</a>
 						<% elsif @newpage %>
 							<a href="/p/new/<%= @newpage %>" class="btn small primary">Create <%= @wiki.file_to_pagename(@newpage) %></a>
 						<% end %>

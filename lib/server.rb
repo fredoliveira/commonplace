@@ -5,17 +5,24 @@ require 'erb'
 require 'yaml'
 
 class CommonplaceServer < Sinatra::Base	
-
 	configure do 
 		config = YAML::load(File.open("config/commonplace.yml"))
 		set :sitename, config['sitename']
 		set :dir, config['wikidir']
+		set :locked, config['locked']
    		#set :public_folder, "public"
    		set :views, "views"
 	end
 
 	before do
 		@wiki = Commonplace.new(settings.dir)
+	end
+
+	# if we've locked editing access on the config file, 
+	# every method that edits, saves redirects to root
+	# maybe this could be more elegant?
+	before '/p/*' do 
+		redirect "/" if settings.locked
 	end
 	
 	# show the homepage
@@ -24,7 +31,7 @@ class CommonplaceServer < Sinatra::Base
 	end
 	
 	# show the known page list
-	get '/p/list' do
+	get '/list' do
 		@name = "Known pages"
 		@pages = @wiki.list
 		erb :list
@@ -42,7 +49,7 @@ class CommonplaceServer < Sinatra::Base
 	end
 	
 	# edit a given page
-	get	'/:page/edit' do
+	get	'/p/:page/edit' do
 		@page = @wiki.page(params[:page])
 		
 		if @page
@@ -57,7 +64,7 @@ class CommonplaceServer < Sinatra::Base
 	end
 	
 	# accept updates to a page
-	post '/:page/edit' do
+	post '/p/:page/edit' do
 		page = @wiki.save(params[:page], params[:content])
 		redirect "/#{page.permalink}"
 	end

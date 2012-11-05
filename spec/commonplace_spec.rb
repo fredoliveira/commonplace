@@ -1,5 +1,5 @@
-require File.join('lib', 'commonplace')
-require File.join('lib', 'server')
+require_relative File.join('../lib', 'commonplace')
+require_relative File.join('../lib', 'server')
 require 'rack/test'
 
 describe Commonplace do
@@ -100,18 +100,18 @@ describe CommonplaceServer do
 	end
 
 	it "renders the edit page for an existing page successfully" do
-		get '/home/edit'
+		get '/p/home/edit'
 		last_response.should be_ok
 	end
 
 	it "returns a 404 when trying to edit a page that doesnt exist" do
-		get '/anonexistingpagehopefully/edit'
+		get '/p/anonexistingpagehopefully/edit'
 		last_response.should_not be_ok
 		last_response.status.should == 404
 	end
 	
 	it "renders the page list successfully" do
-		get '/p/list'
+		get '/list'
 		last_response.should be_ok
 	end
 	
