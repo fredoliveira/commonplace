@@ -20,7 +20,7 @@
 			<nav class="tools">
 				<a href="/" class="btn small <%= "disabled" if @name == "Home" %>">&lt; Home</a>
 				<a href="/list" class="btn small <%= "disabled" if @name == "Known pages" %>">Page list</a>
-				<% if @page && !@editing && !settings.locked %>
+				<% if @page && !@editing && !settings.readonly %>
 					<a href="/p/new" class="btn small">New page</a>
 					<a href="/p/<%= @page.permalink %>/edit" class="btn small primary">Edit this</a>
 				<% elsif @newpage %>

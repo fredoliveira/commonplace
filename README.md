@@ -1,6 +1,8 @@
 ## What is Commonplace?
 
-I write quite a bit, usually in Markdown, but I usually keep all my markdown files scattered around my hard-drive. Commonplace is a simple wiki-like system to store and browse your markdown files. It works by reading `.md` files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)). The name draws inspiration from [commonplace books](http://en.wikipedia.org/wiki/Commonplace_book).
+*TL;DR:* A server for your markdown files. Give it a directory, and Commonplace gives you a url, pretty pages, and quick editing.
+
+*The longer version:* I write quite a bit, usually in Markdown, but I usually keep all my markdown files scattered around my hard-drive. Commonplace is a simple wiki-like system to store and browse your markdown files. It works by reading `.md` files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)). The name draws inspiration from [commonplace books](http://en.wikipedia.org/wiki/Commonplace_book).
 
 Commonplace is not meant to be a markdown editor, even though it includes basic editing capabilities. There are a number of tools that do the markdown editing job extremely well - I happen to use [Byword](http://bywordapp.com) for Mac but you get to choose your own poison. If you edit the markdown files in an external editor, changes are reflected here after a refresh.
 
@@ -8,7 +10,7 @@ Commonplace is not meant to be a markdown editor, even though it includes basic 
 
 ### Installing Commonplace
 
-Installing Commonplace is actually really easy - all you need is ruby (which if you're on a fairly recent mac, you already have). If you know your way around Apache, see the instructions below about Configuring apache. If you don't, here's what you do:
+Installing Commonplace is actually really easy - all you need is ruby (which if you're on a fairly recent mac, you already have).
 
 * Clone Commonplace to your local machine `git clone git://github.com/fredoliveira/commonplace.git`
 * Install bundler, if you haven't got it yet `gem install bundler`

@@ -9,7 +9,7 @@ class CommonplaceServer < Sinatra::Base
 		config = YAML::load(File.open("config/commonplace.yml"))
 		set :sitename, config['sitename']
 		set :dir, config['wikidir']
-		set :locked, config['locked']
+		set :readonly, config['readonly']
    		#set :public_folder, "public"
    		set :views, "views"
 	end
@@ -22,7 +22,7 @@ class CommonplaceServer < Sinatra::Base
 	# every method that edits, saves redirects to root
 	# maybe this could be more elegant?
 	before '/p/*' do 
-		redirect "/" if settings.locked
+		redirect "/" if settings.readonly
 	end
 	
 	# show the homepage
