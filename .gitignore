@@ -1,3 +1,4 @@
 .DS_Store
+.rvmrc
 tmp/*
 config/commonplace.yml
