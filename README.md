@@ -23,7 +23,7 @@ Installing Commonplace is actually really easy - all you need is ruby (which if 
 Once you're installed, running Commonplace is trivial.
 
 * Head over to the directory where you installed commonplace, if you're not there already
-* Run `shotgun config.ru` and open `http://localhost:9393` in your browser
+* Run `shotgun` and open `http://localhost:9393` in your browser
 * You're done, get cranking!
 
 ## Things for the advanced nerds
