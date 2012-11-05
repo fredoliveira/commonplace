@@ -28,16 +28,16 @@ Once you're installed, running Commonplace is trivial.
 
 ## Things for the advanced nerds
 
-### Configuring options
+### Syncing with Dropbox
 
 You can edit the directory where Commonplace serves files from by editing the `config/commonplace.yml` file and restarting your server. For extra spice, use a directory somewhere inside your [Dropbox](http://getdropbox.com) folder to have constant syncing across your computers and automatic backups to the cloud. Delicious. As long as this directory has a `home.md` file inside which is used as the main entry point for Commonplace, you're all set.
 
-### Using apache to host your Commonplace install
+### Hosting with Apache
 
-If you already have Apache running on your machine, you can use passenger to serve Commonplace. While installing passenger is out of scope of this document, instructions [are available here](http://www.modrails.com/install.html). Once this is done, a VirtualHost entry like the one below (and a properly configured host - in the example below i use `wiki` as my host) should be all you need:
+If you have an Apache server, you can use passenger to serve Commonplace. While installing passenger is out of scope of this document, instructions [are available here](http://www.modrails.com/install.html). Once this is done, a VirtualHost entry like the one below should be all you need:
 
     <VirtualHost *:80>
-        ServerName wiki
+        ServerName commonplace.yourdomain.com
         DocumentRoot /Users/fred/Projects/personal/commonplace/public
     	RackEnv development
         <Directory /Users/fred/Projects/personal/commonplace>
@@ -46,8 +46,17 @@ If you already have Apache running on your machine, you can use passenger to ser
         </Directory>
     </VirtualHost>
 
+### Hosting with Nginx
+
+If you have a server running Nginx with passenger, here's what you need to add to your `nginx.conf` (or whatever configuration file you use):
+
+	server {
+		listen 80;
+		server_name commonplace.yourdomain.com;
+		root /home/commonplace/commonplace/public;
+		passenger_enabled on;
+	}
+
 ### Running the specs
 
 There's a number of specs to test out the Commonplace functionality available on the `spec` directory. In order to run these tests, use the `rake` utility in the commonplace root folder. Green is good, red is bad. You shouldn't see any red.
-
-You can also use `autotest` if you're so inclined. Running `autotest` in the commonplace root folder automatically monitors your spec files for changes and runs tests automatically. You can see the output in your terminal.
