@@ -6,39 +6,32 @@
 	<link rel="stylesheet" href="/css/screen.css">	
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="span10 offset3 columns">
-				<div id="page">
-					<h1 class="title"><%= '<a href="/">Home</a> &gt; ' if @name != "Home" %><%= @name %></h1>
+	<section id="content">
+		<article id="page">
+			<h1 class="title"><%= '<a href="/">Home</a> &gt; ' if @name != "Home" %><%= @name %></h1>
+			<% if @alert %>
+				<div class="alert-message error"><%= @alert %></div>
+			<% end %>
 					
-					<% if @alert %>
-						<div class="alert-message error"><%= @alert %></div>
-					<% end %>
-					
-					<%= yield %>
-				</div>
+			<%= yield %>
+		</article>
 				
-				<% if !@error %>
-					<div class="tools">
-						<a href="/" class="btn small <%= "disabled" if @name == "Home" %>">&lt; Home</a>
-						<a href="/list" class="btn small <%= "disabled" if @name == "Known pages" %>">Page list</a>
-						<% if @page && !@editing && !settings.locked %>
-							<a href="/p/new" class="btn small">New page</a>
-							<a href="/p/<%= @page.permalink %>/edit" class="btn small primary">Edit this</a>
-						<% elsif @newpage %>
-							<a href="/p/new/<%= @newpage %>" class="btn small primary">Create <%= @wiki.file_to_pagename(@newpage) %></a>
-						<% end %>
-					</div>
+		<% if !@error %>
+			<nav class="tools">
+				<a href="/" class="btn small <%= "disabled" if @name == "Home" %>">&lt; Home</a>
+				<a href="/list" class="btn small <%= "disabled" if @name == "Known pages" %>">Page list</a>
+				<% if @page && !@editing && !settings.locked %>
+					<a href="/p/new" class="btn small">New page</a>
+					<a href="/p/<%= @page.permalink %>/edit" class="btn small primary">Edit this</a>
+				<% elsif @newpage %>
+					<a href="/p/new/<%= @newpage %>" class="btn small primary">Create <%= @wiki.file_to_pagename(@newpage) %></a>
 				<% end %>
-			</div>
-		</div>
+			</nav>
+		<% end %>
+	</section>
 		
-		<div class="row">
-			<div id="footer" class="span10 offset3 columns">
-				Powered by <a href="https://github.com/fredoliveira/commonplace">Commonplace</a>, designed and developed by <a href="http://helloform.com">Fred Oliveira</a>. Source code and updates are <a href="https://github.com/fredoliveira/commonplace">on Github</a>.
-			</div>
-		</div>
-	</div>	
+	<footer>
+		Powered by <a href="https://github.com/fredoliveira/commonplace">Commonplace</a>, designed and developed by <a href="http://helloform.com">Fred Oliveira</a>. Source code and updates are <a href="https://github.com/fredoliveira/commonplace">on Github</a>.
+	</footer>
 </body>
 </html>
