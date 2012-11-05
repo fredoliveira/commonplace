@@ -1,12 +1,12 @@
 ## What is Commonplace?
 
-*TL;DR:* A server for your markdown files. Give it a directory, and Commonplace gives you a url, pretty pages, and quick editing.
+**TL;DR:** A server for your markdown files. Give it a directory, and Commonplace gives you a url, pretty pages, and quick editing.
 
-*The longer version:* I write quite a bit of Markdown, and usually keep my `.md` files scattered around my hard-drive. Commonplace is a simple sinatra-based server to browse and quickly edit your markdown files. It works by reading `.md` files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)). The name draws inspiration from [commonplace books](http://en.wikipedia.org/wiki/Commonplace_book).
+I write quite a bit of Markdown, and usually keep my `.md` files scattered around my hard-drive. Commonplace is a simple sinatra-based server to browse and quickly edit your markdown files. It works by reading `.md` files from a directory you configure (my advice would be to keep this directory backed up through [Dropbox](http://getdropbox.com)). The name draws inspiration from [commonplace books](http://en.wikipedia.org/wiki/Commonplace_book).
 
 Commonplace is not meant to be a markdown editor, even though it includes basic editing capabilities. There are a number of tools that do editing extremely well - I happen to use [Byword](http://bywordapp.com) for Mac but you get to choose your own poison. If you edit the markdown files in an external editor, changes are reflected in commonplace after refreshes.
 
-![Commonplace screenshot](http://madebyform.com/commonplace/img/screen.png)
+![Commonplace screenshot](http://helloform.com/projects/commonplace/img/screen.png)
 
 ### Installing Commonplace
 
