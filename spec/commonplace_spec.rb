@@ -92,6 +92,11 @@ describe CommonplaceServer do
 		get '/home'
 		last_response.should be_ok
 	end
+
+	it "renders nested page routes" do
+		get '/dir1/dir2/apage'
+		last_response.should be_ok
+	end
 	
 	it "returns a 404 when trying to view a page that doesnt exist" do
 		get '/anonexistingpagehopefully'
@@ -101,6 +106,11 @@ describe CommonplaceServer do
 
 	it "renders the edit page for an existing page successfully" do
 		get '/p/home/edit'
+		last_response.should be_ok
+	end
+
+	it "renders the edit page for an existing nested page successfully" do
+		get '/p/dir1/dir2/edit'
 		last_response.should be_ok
 	end
 
