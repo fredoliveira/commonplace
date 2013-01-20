@@ -26,17 +26,19 @@ class Commonplace
 		list
 	end
 	
-	def add_file_links(dir, list)
-		entries = Dir.entries(dir)
+	def add_file_links(directory, list)
+		entries = Dir.entries(directory)
 		entries.delete_if { |e| e.start_with?('.') }
 
-		dirs = entries.select { |e| File.directory? File.join(dir, e) }
-		files = entries.select { |e| File.file? File.join(dir, e) }
-		
+		dirs = entries.select { |e| File.directory? File.join(directory, e) }
+		files = entries.select { |e| File.file? File.join(directory, e) }
+		files.map! do |e| 
+			File.join(directory, e)
+		end
 		list.concat files
 		
 		if dirs
-			dirs.each { |sub_dir| add_file_links(File.join(dir, sub_dir), list) }
+			dirs.each { |sub_dir| add_file_links(File.join(directory, sub_dir), list) }
 		end
 		
 		list
@@ -45,7 +47,7 @@ class Commonplace
 	# returns an array of known pages
 	def list
 		files.map! { |filename|
-			{:title => file_to_pagename(filename), :link => filename.chomp(".md")}
+			{:title => file_to_pagename(filename), :link => filename.split('/').drop(1).join('/').chomp(".md")}
 		}
 	end
 	
@@ -66,7 +68,7 @@ class Commonplace
 	
 	# converts a filename into a page title
 	def file_to_pagename(filename)
-		filename.chomp(".md").gsub('_', ' ').capitalize
+		filename.split('/').last.chomp(".md").gsub('_', ' ').capitalize
 	end
 		
 	# returns a page instance for a given filename
