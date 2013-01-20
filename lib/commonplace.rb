@@ -22,6 +22,7 @@ class Commonplace
 		f = Dir.entries(dir)
 		f.delete(".")
 		f.delete("..")
+		f.delete_if { |filename| filename.start_with?('.') }
 
 		return f
 	end
