@@ -38,11 +38,6 @@ class CommonplaceServer < Sinatra::Base
 	end
 
 	# show everything else
-	get '/:page' do
-		show(params[:page])
-	end
-	
-	# show everything else
 	get '/:page/raw' do
 		@page = @wiki.page(params[:page])
 		@page.raw.to_s
@@ -84,6 +79,12 @@ class CommonplaceServer < Sinatra::Base
 		erb :new
 	end
 	
+	# get all pages inside directories
+	get '/*' do
+		page = params[:splat].first
+		show(page)
+	end
+
 	# save the new page
 	post '/p/save' do
 		if params[:filename] && params[:filename] != ""
