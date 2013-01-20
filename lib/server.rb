@@ -44,9 +44,9 @@ class CommonplaceServer < Sinatra::Base
 	end
 	
 	# edit a given page
-	get	'/p/:page/edit' do
-		@page = @wiki.page(params[:page])
-		
+	get	'/p/*/edit' do
+		page_name = params[:splat].first
+		@page = @wiki.page(page_name)
 		if @page
 			@name = "Editing " + @page.name
 			@editing = true
@@ -59,8 +59,9 @@ class CommonplaceServer < Sinatra::Base
 	end
 	
 	# accept updates to a page
-	post '/p/:page/edit' do
-		page = @wiki.save(params[:page], params[:content])
+	post '/p/*/edit' do
+		page_name = params[:splat].first
+		page = @wiki.save(page_name, params[:content])
 		redirect "/#{page.permalink}"
 	end
 
@@ -81,8 +82,8 @@ class CommonplaceServer < Sinatra::Base
 	
 	# get all pages inside directories
 	get '/*' do
-		page = params[:splat].first
-		show(page)
+		page_name = params[:splat].first
+		show(page_name)
 	end
 
 	# save the new page
