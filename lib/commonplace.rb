@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'redcarpet'
+require 'find'
 
 class Commonplace
 	attr_accessor :dir
@@ -19,14 +20,28 @@ class Commonplace
 		# if the directory doesn't exist, we bail out with a nil
 		return nil unless File.directory? dir
 		
-		f = Dir.entries(dir)
-		f.delete(".")
-		f.delete("..")
-		f.delete_if { |filename| filename.start_with?('.') }
-
-		return f
-	end
+		list = []
+		add_file_links(dir, list)
 		
+		list
+	end
+	
+	def add_file_links(dir, list)
+		entries = Dir.entries(dir)
+		entries.delete_if { |e| e.start_with?('.') }
+
+		dirs = entries.select { |e| File.directory? File.join(dir, e) }
+		files = entries.select { |e| File.file? File.join(dir, e) }
+		
+		list.concat files
+		
+		if dirs
+			dirs.each { |sub_dir| add_file_links(File.join(dir, sub_dir), list) }
+		end
+		
+		list
+	end
+	
 	# returns an array of known pages
 	def list
 		files.map! { |filename|
