@@ -125,11 +125,12 @@ class Page
 		return content.gsub(/\[\[(.+?)\]\]/m) do
 			name = $1
 			permalink = name.downcase.gsub(' ', '_')
+			display_name = name.split('/').last
 			
 			if @wiki.page(permalink)
-				"<a class=\"internal\" href=\"/#{permalink}\">" + name + '</a>'
+				"<a class=\"internal\" href=\"/#{permalink}\">" + display_name + '</a>'
 			else 
-				"<a class=\"internal new\" href=\"/#{permalink}\">" + name + '</a>'
+				"<a class=\"internal new\" href=\"/#{permalink}\">" + display_name + '</a>'
 			end
 		end.to_s
 	end	
