@@ -2066,6 +2066,12 @@ footer a {
   margin-bottom: 1em;
   text-align: right;
 }
+
+li.directory {
+	font-size: 2.5em;
+	list-style: none;
+}
+
 @media screen and (max-width: 480px) {
   #content {
     margin: 0;

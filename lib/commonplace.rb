@@ -28,10 +28,13 @@ class Commonplace
 	
 	def add_file_links(directory, list)
 		entries = Dir.entries(directory)
-		entries.delete_if { |e| e.start_with?('.') }
-
+		entries.delete_if { |e| e.start_with?('.') || e.start_with?('..')}
+		
+		list << directory if entries.count > 0
+		
 		dirs = entries.select { |e| File.directory? File.join(directory, e) }
 		files = entries.select { |e| File.file? File.join(directory, e) }
+		files.reject! {|e| !e.end_with? '.md'}
 		files.map! do |e| 
 			File.join(directory, e)
 		end
@@ -47,7 +50,11 @@ class Commonplace
 	# returns an array of known pages
 	def list
 		files.map! { |filename|
-			{:title => file_to_pagename(filename), :link => filename.split('/').drop(1).join('/').chomp(".md")}
+			if File.file? filename
+				{:dir => false, :title => file_to_pagename(filename), :link => filename.split('/').drop(1).join('/').chomp(".md")}
+			else
+				{:dir => true, :title => filename.split('/').last}
+			end
 		}
 	end
 	
