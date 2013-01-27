@@ -1,3 +1,5 @@
+#encoding: UTF-8
+
 require 'rubygems'
 require 'redcarpet'
 require 'find'
@@ -53,9 +55,19 @@ class Commonplace
 			if File.file? filename
 				{:dir => false, :title => file_to_pagename(filename), :link => filename.split('/').drop(1).join('/').chomp(".md")}
 			else
-				{:dir => true, :title => filename.split('/').last}
+				entry_for_directory(filename)
 			end
 		}
+	end
+	
+	def entry_for_directory(dirname)
+		splits = dirname.split('/')
+		if splits.count == 1
+			{:dir => true, :top_level => true, :title => "Home"}
+		else
+			title = splits.slice(1, splits.length - 1).join(" » ")
+			{:dir => true, :top_level => false, :title => title}
+		end
 	end
 	
 	# converts a pagename into the permalink form

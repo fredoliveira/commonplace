@@ -2068,8 +2068,19 @@ footer a {
 }
 
 li.directory {
-	font-size: 2.5em;
+	font-size: 1.4em;
 	list-style: none;
+	margin-top: 20px;
+	text-indent: -20px;
+}
+
+li.top_directory {
+	font-size: 1.4em;
+	font-weight: bold;
+	list-style: none;
+	margin-top: 20px;
+	text-indent: -20px;
+	letter-spacing: 3px;
 }
 
 @media screen and (max-width: 480px) {

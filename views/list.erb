@@ -3,7 +3,11 @@
 <ul>
 	<% for page in @pages do %>
 		<% if page[:dir] %>
-			<li class="directory"><%= page[:title] %></li>
+			<% if page[:top_level] %>
+				<li class="top_directory"><%= page[:title] %></li>
+			<% else %>
+				<li class="directory"><%= page[:title] %></li>
+			<% end %>
 		<% else %>
 			<li><a href="/<%= page[:link] %>"><%= page[:title] %></a></li>
 		<% end %>
