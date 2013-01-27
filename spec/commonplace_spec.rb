@@ -36,8 +36,8 @@ describe Commonplace do
 	end
 	
 	it "should return contents of a file when accessing an existing nested file" do
-		@w.page('dir1/dir2/what').raw.should == "What a wonderful day!"
-		@w.page('dir1/dir2/what').content.should == "<p>What a wonderful day!</p>\n"
+		@w.page('dir1/dir2/apage').raw.should == "What a wonderful day!"
+		@w.page('dir1/dir2/apage').content.should == "<p>What a wonderful day!</p>\n"
 	end
 	
 	it "should return a Page instance when a valid page is requested" do
@@ -46,6 +46,9 @@ describe Commonplace do
 	
 	it "should return valid raw content for an existing page" do
 		@w.page('test').raw.should == "Test file - don't change these contents."
+	end
+	it "should convert text with internal links to proper href links" do
+
 	end
 	
 	it "should return valid raw content for an existing nested page" do
@@ -69,8 +72,8 @@ describe Commonplace do
 	end
 	
 	it "should save a nested page correctly" do
-		@w.save('dir1/dir2/what', "What a wonderful day!").class.should == Page
-		@w.page('dir1/dir2/what').raw.should == "What a wonderful day!"
+		@w.save('dir1/dir2/apage', "What a wonderful day!").class.should == Page
+		@w.page('dir1/dir2/apage').raw.should == "What a wonderful day!"
 	end
 	
 	it "should convert pages to files and back" do
