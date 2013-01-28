@@ -65,8 +65,9 @@ class Commonplace
 		if splits.count == 1
 			{:dir => true, :top_level => true, :title => "Home"}
 		else
-			title = splits.slice(1, splits.length - 1).join(" » ")
-			{:dir => true, :top_level => false, :title => title}
+			splits_without_root = splits.slice(1, splits.length - 1)
+			title = splits_without_root.join(" » ")
+			{:dir => true, :top_level => false, :title => title, :link => splits_without_root.join('/')}
 		end
 	end
 	
@@ -92,16 +93,20 @@ class Commonplace
 		
 	# returns a page instance for a given filename
 	def page(permalink)
-		# check if the file exists, return nil if not
 		file = dir + '/' + permalink + '.md'
-		return nil unless File.exists? file # bail out if the file doesn't exist
-		
-		# check if we can read content, return nil if not
-		content = File.new(file, :encoding => "UTF-8").read
-		return nil if content.nil?
-		
-		# return a new Page instance
-		return Page.new(content, permalink, self)
+		dir_path = dir + '/' + permalink
+		# check if this is a directory path
+		if File.directory?(dir_path)
+			return Folder.new(dir_path, self)
+		elsif File.exists? file
+			# check if we can read content, return nil if not
+			content = File.new(file, :encoding => "UTF-8").read
+			return nil if content.nil?
+			
+			# return a new Page instance
+			return Page.new(content, permalink, self)
+		end
+		nil
 	end
 
 	# create a new page and return it when done
@@ -116,6 +121,26 @@ class Commonplace
 		
 		# return the new file
 		return page(filename)
+	end
+end
+
+class Folder
+	attr_accessor :name, :content, :permalink
+
+	def initialize(path, wiki)
+		@path = path
+		splits = path.split('/')
+		@name = splits.last
+		@permalink = splits.slice(1, splits.length - 1).join('/')
+	end
+
+	def content
+		list = []
+		Dir.glob("#{@path}/*.md") do |file|
+			filename = file.split('/').last.chomp('.md')
+			list << "- <a class=\"internal\" href=\"/#{@permalink + '/' + filename}\">" + filename.gsub('_', ' ') + "</a>"
+		end
+		Redcarpet.new(list.join("\n")).to_html.to_s
 	end
 end
 
