@@ -26,6 +26,13 @@ Once you're installed, running Commonplace is trivial.
 * Run `shotgun` and open `http://localhost:9393` in your browser
 * You're done, get cranking!
 
+### Running on Windows
+
+Since shotgun doesn't run on windows, you need to install Thin instead. Here's what you do:
+
+* `gem install thin` to install thin in your system
+* `thin -R config.ru start` to run commonplace
+
 ## Things for the advanced nerds
 
 ### Syncing with Dropbox

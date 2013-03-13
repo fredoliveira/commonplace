@@ -10,7 +10,7 @@ class CommonplaceServer < Sinatra::Base
 		set :sitename, config['sitename']
 		set :dir, config['wikidir']
 		set :readonly, config['readonly']
-   		#set :public_folder, "public"
+   		set :public_folder, "public"
    		set :views, "views"
 	end
 
