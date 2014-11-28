@@ -31,8 +31,8 @@ describe Commonplace do
 	end
 	
 	it "should return contents of a file when accessing an existing file" do
-		@w.page('test').raw.should == "Test file - don't change these contents."
-		@w.page('test').content.should == "<p>Test file - don't change these contents.</p>\n"
+		@w.page('test').raw.should == "Test file - don&rsquo;t change these contents."
+		@w.page('test').content.should == "<p>Test file - don&rsquo;t change these contents.</p>\n"
 	end
 	
 	it "should return a Page instance when a valid page is requested" do
@@ -40,7 +40,11 @@ describe Commonplace do
 	end
 	
 	it "should return valid raw content for an existing page" do
-		@w.page('test').raw.should == "Test file - don't change these contents."
+		@w.page('test').raw.should == "Test file - don&rsquo;t change these contents."
+	end
+	
+	it "should convert straight quotes to smart quotes" do
+		@w.page('test').raw.should == "Test file - don&rsquo;t change these contents."
 	end
 	
 	it "should return a capitalized, underscore free title based on the file name" do

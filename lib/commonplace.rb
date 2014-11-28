@@ -86,15 +86,21 @@ class Page
 	attr_accessor :name, :permalink
 	
 	def initialize(content, filename, wiki)
-		@content = content # the raw page content
+		@content = smart content # the raw page content
 		@permalink = filename
 		@name = filename.gsub('_', ' ').capitalize
 		@wiki = wiki
 	end
 	
+	def smart(html)
+		Redcarpet::Render::SmartyPants.render(html)
+	end
+	
 	# return html for markdown formatted page content
 	def content
-		return Redcarpet.new(parse_links(@content)).to_html
+		renderer = Redcarpet::Render::HTML.new
+		markdown = Redcarpet::Markdown.new(renderer)
+		return markdown.render(parse_links(@content))
 	end
 	
 	# return raw page content
