@@ -19,7 +19,7 @@ class Commonplace
 		# if the directory doesn't exist, we bail out with a nil
 		return nil unless File.directory? dir
 		
-		f = Dir.entries(dir)
+		f = Dir.entries(dir).sort
 		f.delete(".")
 		f.delete("..")
 
